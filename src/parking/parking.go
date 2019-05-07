@@ -104,6 +104,7 @@ func (ps *Station) GetEngagedSlots() ([]*slot.Slot, error) {
 	for _, slot := range ps.slots {
 		if !slot.IsAvailable() {
 			engagedSlots[slotIndex] = slot
+			slotIndex++
 		}
 	}
 	return engagedSlots, nil
@@ -125,9 +126,10 @@ func (ps *Station) GetSlotsBy(key, value string) ([]*slot.Slot, error) {
 			expected = v.GetRegistrationNumber()
 			break
 		case "color":
-			expected = v.GetRegistrationNumber()
+			expected = v.GetColor()
 			break
 		}
+
 		if value == expected {
 			slots = append(slots, slot)
 		}

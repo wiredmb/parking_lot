@@ -30,7 +30,7 @@ func ExecuteCommands(scanner *bufio.Scanner) {
 			cmdCreateParking := NewCommandCreateParking(command, parsedCommand)
 			err := cmdCreateParking.Execute()
 			if err != nil {
-				fmt.Println(err)
+				fmt.Println(err.Error())
 			}
 			fmt.Println(cmdCreateParking.Output)
 
@@ -38,7 +38,7 @@ func ExecuteCommands(scanner *bufio.Scanner) {
 			cmdPark := NewCommandPark(command, parsedCommand)
 			err := cmdPark.Execute()
 			if err != nil {
-				fmt.Println(err)
+				fmt.Println(err.Error())
 			}
 			fmt.Println(cmdPark.Output)
 
@@ -46,7 +46,7 @@ func ExecuteCommands(scanner *bufio.Scanner) {
 			cmdRemove := NewCommandRemove(command, parsedCommand)
 			err := cmdRemove.Execute()
 			if err != nil {
-				fmt.Println(err)
+				fmt.Println(err.Error())
 			}
 			fmt.Println(cmdRemove.Output)
 
@@ -54,7 +54,7 @@ func ExecuteCommands(scanner *bufio.Scanner) {
 			cmdStatus := NewCommandStatus(command, parsedCommand)
 			err := cmdStatus.Execute()
 			if err != nil {
-				fmt.Println(err)
+				fmt.Println(err.Error())
 			}
 			fmt.Println(cmdStatus.Output)
 
@@ -62,7 +62,7 @@ func ExecuteCommands(scanner *bufio.Scanner) {
 			cmdGetRegNumWithColor := NewCommandGetRegNumWithColor(command, parsedCommand)
 			err := cmdGetRegNumWithColor.Execute()
 			if err != nil {
-				fmt.Println(err)
+				fmt.Println(err.Error())
 			}
 			fmt.Println(cmdGetRegNumWithColor.Output)
 
@@ -70,7 +70,7 @@ func ExecuteCommands(scanner *bufio.Scanner) {
 			cmdGetSlotNumWithColor := NewCommandGetSlotNumWithColor(command, parsedCommand)
 			err := cmdGetSlotNumWithColor.Execute()
 			if err != nil {
-				fmt.Println(err)
+				fmt.Println(err.Error())
 			}
 			fmt.Println(cmdGetSlotNumWithColor.Output)
 
@@ -78,7 +78,7 @@ func ExecuteCommands(scanner *bufio.Scanner) {
 			cmdGetSlotNumWithRegNum := NewCommandGetSlotNumWithRegNum(command, parsedCommand)
 			err := cmdGetSlotNumWithRegNum.Execute()
 			if err != nil {
-				fmt.Println(err)
+				fmt.Println(err.Error())
 			}
 			fmt.Println(cmdGetSlotNumWithRegNum.Output)
 

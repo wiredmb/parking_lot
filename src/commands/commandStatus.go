@@ -43,14 +43,14 @@ func (cs *CmdStatus) run() error {
 	}
 
 	var outputList = []string{
-		fmt.Sprintf("%-10s%-15s%-10s",
+		fmt.Sprintf("%-10s%-25s%-10s",
 			"Slot No.",
 			"Registration No",
 			"Colour",
 		),
-		fmt.Sprintf("%-10v%-15v%-10v",
+		fmt.Sprintf("%-10v%-25v%-10v",
 			"----------",
-			"---------------",
+			"-------------------------",
 			"----------",
 		),
 	}
@@ -60,7 +60,7 @@ func (cs *CmdStatus) run() error {
 		outputList = append(
 			outputList,
 			fmt.Sprintf(
-				"%-10v%-15v%-10v",
+				"%-10v%-25v%-10v",
 				s.GetSlotNumber(),
 				v.GetRegistrationNumber(),
 				v.GetColor(),
