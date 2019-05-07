@@ -14,7 +14,7 @@ type CmdCreateParking struct {
 	capacity ptypes.Capacity
 }
 
-// NewCommandCreateParking new park command instance
+// NewCommandCreateParking new create parking command instance
 func NewCommandCreateParking(command string, parsedCommand []string) *CmdCreateParking {
 	var cmd = new(CmdCreateParking)
 	cmd.Cmd = command
@@ -27,7 +27,7 @@ func (ccp *CmdCreateParking) Name() string {
 	return ccp.Cmd
 }
 
-// Execute executes the park command
+// Execute executes the create parking command
 func (ccp *CmdCreateParking) Execute() error {
 	var err error
 

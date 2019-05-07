@@ -43,10 +43,45 @@ func ExecuteCommands(scanner *bufio.Scanner) {
 			fmt.Println(cmdPark.Output)
 
 		case command == RemoveVehicle:
+			cmdRemove := NewCommandRemove(command, parsedCommand)
+			err := cmdRemove.Execute()
+			if err != nil {
+				fmt.Println(err)
+			}
+			fmt.Println(cmdRemove.Output)
+
 		case command == GetParkingLotStatus:
+			cmdStatus := NewCommandStatus(command, parsedCommand)
+			err := cmdStatus.Execute()
+			if err != nil {
+				fmt.Println(err)
+			}
+			fmt.Println(cmdStatus.Output)
+
 		case command == GetRegNumWithColor:
+			cmdGetRegNumWithColor := NewCommandGetRegNumWithColor(command, parsedCommand)
+			err := cmdGetRegNumWithColor.Execute()
+			if err != nil {
+				fmt.Println(err)
+			}
+			fmt.Println(cmdGetRegNumWithColor.Output)
+
 		case command == GetSlotNumWithColor:
+			cmdGetSlotNumWithColor := NewCommandGetSlotNumWithColor(command, parsedCommand)
+			err := cmdGetSlotNumWithColor.Execute()
+			if err != nil {
+				fmt.Println(err)
+			}
+			fmt.Println(cmdGetSlotNumWithColor.Output)
+
 		case command == GetSlotNumWithRegNum:
+			cmdGetSlotNumWithRegNum := NewCommandGetSlotNumWithRegNum(command, parsedCommand)
+			err := cmdGetSlotNumWithRegNum.Execute()
+			if err != nil {
+				fmt.Println(err)
+			}
+			fmt.Println(cmdGetSlotNumWithRegNum.Output)
+
 		case command == ExitParkingLot && len(parsedCommand) == 1:
 			exit = true
 		default:
