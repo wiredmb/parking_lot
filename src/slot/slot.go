@@ -1,9 +1,9 @@
 package slot
 
 import (
-	"parking_lot/src/perror"
-	"parking_lot/src/ptypes"
-	"parking_lot/src/vehicle"
+	"perror"
+	"ptypes"
+	"vehicle"
 )
 
 // Slot is a parking slot with slot number and parked vehicle information.
@@ -47,4 +47,9 @@ func (s *Slot) Free() {
 // GetVehicle returns vehicle parked in slot.
 func (s *Slot) GetVehicle() *vehicle.Vehicle {
 	return s.vehicle
+}
+
+// GetSlotNumber returns the slot number.
+func (s *Slot) GetSlotNumber() ptypes.Index {
+	return s.slotNumber
 }

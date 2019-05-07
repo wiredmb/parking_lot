@@ -1,10 +1,10 @@
 package parking
 
 import (
-	"parking_lot/src/perror"
-	"parking_lot/src/ptypes"
-	"parking_lot/src/slot"
-	"parking_lot/src/vehicle"
+	"perror"
+	"ptypes"
+	"slot"
+	"vehicle"
 )
 
 // Station is a parking station
@@ -30,13 +30,21 @@ func (ps *Station) init(capacity ptypes.Capacity) {
 	ps.engagedCount = 0
 	ps.slots = make([]*slot.Slot, capacity)
 	for idx := range ps.slots {
-		ps.slots[idx] = slot.NewSlot(ptypes.Index(idx))
+		ps.slots[idx] = slot.NewSlot(ptypes.Index(idx) + 1)
 	}
 }
 
 // Get returns the parking station.
 func Get() *Station {
+	if parkingStation == nil {
+		panic("Parking station is not initialized")
+	}
 	return parkingStation
+}
+
+// Set sets the parking station
+func Set(station *Station) {
+	parkingStation = station
 }
 
 // ParkVehicle parks the vehicle in available slot, else returns error.
