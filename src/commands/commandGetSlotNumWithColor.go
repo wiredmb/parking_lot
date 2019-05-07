@@ -53,8 +53,8 @@ func (cd *CmdGetSlotNumWithColor) run() error {
 	cd.color = cd.Args[0]
 
 	slots, err := parking.Get().GetSlotsBy("color", cd.color)
-	if err != nil {
-		return err
+	if err != nil || perror.Zero == len(slots) {
+		return perror.ErrNotFound
 	}
 
 	var outputList = []string{}

@@ -53,8 +53,8 @@ func (cd *CmdGetSlotNumWithRegNum) run() error {
 	cd.registrationNumber = cd.Args[0]
 
 	slots, err := parking.Get().GetSlotsBy("regnum", cd.registrationNumber)
-	if err != nil {
-		return err
+	if err != nil || perror.Zero == len(slots) {
+		return perror.ErrNotFound
 	}
 
 	var outputList = []string{}
@@ -64,6 +64,7 @@ func (cd *CmdGetSlotNumWithRegNum) run() error {
 			fmt.Sprintf("%v", s.GetSlotNumber()),
 		)
 	}
+
 	cd.Output = strings.Join(outputList, perror.Comma)
 
 	return nil
